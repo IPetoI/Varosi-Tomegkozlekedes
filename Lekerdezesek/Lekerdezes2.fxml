@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Lekerdezesek.Lekerdezes2">
+   <top>
+      <AnchorPane prefHeight="404.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+             <Button layoutX="14.0" layoutY="26.0" mnemonicParsing="false" onAction="#Kezdokepernyore" prefHeight="35.0" prefWidth="120.0" text="Kezdőképernyő" />
+             <Button layoutX="150.0" layoutY="26.0" mnemonicParsing="false" onAction="#Tablanezobe" prefHeight="35.0" prefWidth="120.0" text="Tábla néző" />
+             <Button layoutX="288.0" layoutY="26.0" mnemonicParsing="false" onAction="#Tablaszerkesztobe" prefHeight="35.0" prefWidth="120.0" text="Tábla szerkesztő" />
+             <Button layoutX="426.0" layoutY="26.0" mnemonicParsing="false" onAction="#Lekerdezesekbe" prefHeight="35.0" prefWidth="120.0" text="Lekérdezések" />
+             <Label layoutX="565.0" layoutY="22.0" prefHeight="43.0" prefWidth="173.0" text="Lekérdezés 2">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+             <TextField fx:id="Kereso" layoutX="749.0" layoutY="31.0" prefHeight="25.0" prefWidth="225.0" promptText="Kereső" />
+            <Label layoutX="14.0" layoutY="83.0" text="SQL KÓD:">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <Label layoutX="14.0" layoutY="231.0" prefHeight="45.0" prefWidth="87.0" text="Leírás:">
+               <font>
+                  <Font size="30.0" />
+               </font>
+            </Label>
+            <TextArea layoutX="26.0" layoutY="132.0" prefHeight="90.0" prefWidth="570.0" text="SELECT iranyitoszam.Város_Név,jegy.Diák_ár FROM iranyitoszam INNER JOIN&#10; jegy ON iranyitoszam.Irányítószám=jegy.Irányítószám WHERE iranyitoszam.Irányítószám &#10;IN(SELECT Irányítószám FROM jegy WHERE Diák_ár&lt;500 )AND jegy.Diák_ár &#10;IN(SELECT Diák_ár FROM jegy WHERE Diák_ár&lt;500 )">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+            <TextArea layoutX="26.0" layoutY="284.0" prefHeight="90.0" prefWidth="570.0" text="Lekérjük azoknak a városoknak az irányítószámát ahol a diákoknak 500-nál olcsóbb&#10; a jegy ára,majd az így kapott irányítószámhoz tartozó városok nevét kilistázzuk a &#10;városban kapható diákjegy árával.">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+            <BarChart fx:id="Bar" layoutX="601.0" layoutY="65.0" prefHeight="334.0" prefWidth="391.0" title="Diákjegy árak">
+              <xAxis>
+                <CategoryAxis fx:id="BarV" label="Város" side="BOTTOM" />
+              </xAxis>
+              <yAxis>
+                <NumberAxis fx:id="BarA" label="Ár" side="LEFT" />
+              </yAxis>
+            </BarChart>
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <TableView fx:id="iranyitoszamesjegy" prefHeight="597.0" prefWidth="999.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="Város_Név" prefWidth="500.0" text="Város Név" />
+          <TableColumn fx:id="Diák_ár" prefWidth="500.0" text="Diák ár" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>

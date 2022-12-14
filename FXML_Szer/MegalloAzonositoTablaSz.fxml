@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToolBar?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.text.Font?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Tablak.Megallo_azonositotabla">
+   <top>
+      <AnchorPane prefHeight="133.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+         <children>
+            <Button layoutX="14.0" layoutY="76.0" mnemonicParsing="false" onAction="#Kezdokepernyore" prefHeight="35.0" prefWidth="120.0" text="Kezdőképernyő" />
+            <Button layoutX="146.0" layoutY="76.0" mnemonicParsing="false" onAction="#Tablanezobe" prefHeight="35.0" prefWidth="120.0" text="Tábla néző" />
+             <Button layoutX="278.0" layoutY="76.0" mnemonicParsing="false" onAction="#Lekerdezesekbe" prefHeight="35.0" prefWidth="120.0" text="Lekérdezések" />
+            <ToolBar layoutY="-1.0" prefHeight="68.0" prefWidth="1000.0">
+              <items>
+                  <Button mnemonicParsing="false" onAction="#JarmuTablaraSz" text="Jármű" />
+                  <Button mnemonicParsing="false" onAction="#BuszTablaraSz" text="Busz" />
+                  <Button mnemonicParsing="false" onAction="#TroliTablaraSz" text="Troli" />
+                  <Button mnemonicParsing="false" onAction="#VillamosTablaraSz" text="Villamos" />
+                  <Button mnemonicParsing="false" onAction="#MetroTablaraSz" text="Metro" />
+                  <Button mnemonicParsing="false" onAction="#VarosTablaraSz" text="Város" />
+                  <Button mnemonicParsing="false" onAction="#MegalloTablaraSz" text="Megálló" />
+                  <Button mnemonicParsing="false" onAction="#MegalloTipusTablaraSz" text="Megálló Típus" />
+                  <Button mnemonicParsing="false" onAction="#JegyTablaraSz" text="Jegy" />
+                  <Button mnemonicParsing="false" onAction="#MenetrendTablaraSz" text="Menetrend" />
+                  <Button mnemonicParsing="false" onAction="#JarmuAzonositoTablaraSz" text="Jármű Azonosító" />
+                  <Button mnemonicParsing="false" onAction="#IranyitoszamTablaraSz" text="Irányítószám" />
+              </items>
+            </ToolBar>
+            <Label layoutX="413.0" layoutY="76.0" prefHeight="43.0" prefWidth="318.0" text="Megálló Azonosító Tábla">
+               <font>
+                  <Font size="29.0" />
+               </font>
+            </Label>
+             <TextField fx:id="Kereso" layoutX="750.0" layoutY="85.0" prefHeight="25.0" prefWidth="225.0" promptText="Kereső" />
+             <Button layoutX="441.0" layoutY="134.0" mnemonicParsing="false" onAction="#Szerkeszt" prefHeight="35.0" prefWidth="120.0" text="Szerkeszt" />
+             <Button layoutX="588.0" layoutY="134.0" mnemonicParsing="false" onAction="#Torol" prefHeight="35.0" prefWidth="120.0" text="Töröl" />
+             <Button layoutX="293.0" layoutY="134.0" mnemonicParsing="false" onAction="#Hozzaad" prefHeight="35.0" prefWidth="120.0" text="Hozzáad" />
+             <TextField fx:id="MegalloNev" layoutX="241.0" layoutY="202.0" prefHeight="25.0" prefWidth="225.0" promptText="Megálló Név" />
+             <Label fx:id="informacio" alignment="CENTER" layoutX="25.0" layoutY="241.0" prefHeight="17.0" prefWidth="950.0" />
+             <ChoiceBox fx:id="valaszthato" layoutX="536.0" layoutY="202.0" prefHeight="25.0" prefWidth="225.0" />
+         </children>
+      </AnchorPane>
+   </top>
+   <center>
+      <TableView fx:id="megallo_azonosito" onMouseClicked="#Kivalaszt" prefHeight="681.0" prefWidth="1000.0" BorderPane.alignment="CENTER">
+        <columns>
+          <TableColumn fx:id="Megálló_Név" prefWidth="497.0" text="Megálló Név" />
+          <TableColumn fx:id="Megálló_Azonosító" prefWidth="502.0" text="Megálló Azonosító" />
+        </columns>
+      </TableView>
+   </center>
+</BorderPane>
